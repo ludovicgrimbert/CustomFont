@@ -9,14 +9,14 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13, macCatalyst 15, watchOS 7, *)
-struct CustomFont: ViewModifier {
+public struct CustomFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
 
     var name: String
     var style: UIFont.TextStyle
     var weight: Font.Weight = .regular
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         return content.font(Font.custom(
             name,
             size: UIFont.preferredFont(forTextStyle: style).pointSize)
@@ -25,7 +25,7 @@ struct CustomFont: ViewModifier {
 }
 
 @available(iOS 13, macCatalyst 15, watchOS 7, *)
-extension View {
+public extension View {
     func customFont(
         name: String,
         style: UIFont.TextStyle,
